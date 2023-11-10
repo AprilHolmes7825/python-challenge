@@ -15,30 +15,23 @@ output = []
 with open(bank_csv, encoding='utf-8') as csvfile:
     csvreader = csv.reader(csvfile, delimiter = ',')
     
-
-    header = []
-
+    #challenge requirements say to read and store contents of header row, but it's never used?
     #skip header
-    #next(csvreader)
+    header = next(csvfile)
 
     for row in csvreader:
-        #challenge instrctions say to store contents of header row, but it's never used?
-        if len(header) == 0:
-            header.append(str(row[0]) + "," + str(row[1]))
-            print(header[0])
+        #don't calculate change for first data row, but add change for every row
+        if len(profit_loss) > 0:
+            last_profit_loss = profit_loss[len(profit_loss)-1]
+            change.append(int(row[1]) - int(last_profit_loss))
         else:
-            #don't calculate change for first data row, but add change for every row
-            if len(profit_loss) > 0:
-                last_profit_loss = profit_loss[len(profit_loss)-1]
-                change.append(int(row[1]) - int(last_profit_loss))
-            else:
-                change.append(0)
+            change.append(0)
 
-            #add date
-            date.append(str(row[0]))
+        #add date
+        date.append(str(row[0]))
 
-            #add profit/loss
-            profit_loss.append(int(row[1]))
+        #add profit/loss
+        profit_loss.append(int(row[1]))
 
 #find greatest increase
 greatest_increase = max(change)
@@ -46,6 +39,7 @@ greatest_increase = max(change)
 #find greatest decrease
 greatest_decrease = min(change)
 
+#build output lines
 output.append("Financial Analysis")
 output.append("")
 output.append("----------------------------")
