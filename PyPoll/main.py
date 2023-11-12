@@ -1,14 +1,10 @@
 import csv
 import os
 
-#election_csv = os.path.join("PyPoll", "Resources", "election_data.csv")
+#election_csv = os.path.join("...", "Resources", "election_data.csv")
 election_csv = "PyPoll/Resources/election_data.csv"
 
-#Lists to store data
-ballot_id = []
-ballot_county =[]
-ballot_candidate = []
-
+ballots = []
 candidates = []
 
 #to store output
@@ -23,38 +19,51 @@ with open(election_csv, encoding='utf-8') as csvfile:
 
     for row in csvreader:
         #add ballot_id
-        ballot_id.append(str(row[0]))
-        ballot_county.append(str(row[1]))
-        ballot_candidate.append(str(row[2]))
-
-#find greatest increase
-greatest_increase = max(ballot_candidate)
-
-#find greatest decrease
-greatest_decrease = min(ballot_candidate)
+        ballots.append({"id": row[0],
+                        "county": row[1],
+                        "candidate": row[2]})
+        
+        #if new candiate, add to candidates lilst
+        if candidates.count(str(row[2])) == 0:
+            candidates.append(str(row[2]))
 
 #build output lines
 output.append("Election Results")
 output.append("")
 output.append("----------------------------")
 output.append("")
-output.append("Total Votes: " + str(len(ballot_id)))
+#output.append("Total Votes: " + str(len(ballot_id)))
+output.append("Total Votes: " + str(len(ballots)))
 output.append("----------------------------")
+output.append("")
+
+#Summarize candidates and determine winner
+winner = ""
+winner_votes = 0
 
 
+for candidate in candidates:
+    num_votes = 0
+    percentage = 0
+    #tally number of votes per candidate
+    for ballot in ballots:
+        if ballot["candidate"] == candidate:
+            num_votes += 1
+    
+    #check against current winner
+    if num_votes > winner_votes:
+        winner = candidate
+        winner_votes = num_votes
 
+    percentage = num_votes/len(ballots) * 100
+    output.append(f"{candidate}: {percentage:.3f}% ({str(num_votes)})")
+    output.append("")
 
+output.append("----------------------------")
 output.append("")
-output.append("Total: $" + str(sum(ballot_county)))
+output.append("Winner: " + winner)
 output.append("")
-output.append(f"Average Change ${(sum(ballot_candidate)/(len(ballot_candidate)-1)):.2f}")
-output.append("")
-output.append("Greatest Increase in Profits: " + ballot_id[ballot_candidate.index(greatest_increase)] + " ($" + str(greatest_increase) + ")")
-output.append("")
-output.append("Greatest Decrease in Profits: " + ballot_id[ballot_candidate.index(greatest_decrease)] + " ($" + str(greatest_decrease) + ")")
-output.append("")
-output.append("")
-output.append("")
+output.append("----------------------------")
 
 # Specify the file to write to
 #output_path = os.path.join("..", "analysis", "output.csv")
