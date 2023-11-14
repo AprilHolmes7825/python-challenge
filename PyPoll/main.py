@@ -2,7 +2,6 @@ import csv
 import os
 
 election_csv = os.path.join("PyPoll", "Resources", "election_data.csv")
-#election_csv = "PyPoll/Resources/election_data.csv"
 
 ballots = []
 candidates = []
@@ -64,8 +63,7 @@ output.append("")
 output.append("----------------------------")
 
 # Specify the file to write to
-#output_path = os.path.join("..", "analysis", "output.csv")
-output_path = "PyPoll/analysis/output.txt"
+output_path = os.path.join("PyPoll", "analysis", "output.txt")
 
 # Open the file using "write" mode. Specify the variable to hold the contents
 with open(output_path, 'w') as export:

@@ -2,8 +2,6 @@ import csv
 import os
 
 bank_csv = os.path.join("PyBank", "Resources", "budget_data.csv")
-#bank_csv = "PyBank/Resources/budget_data.csv"
-#PyBank\Resources\budget_data.csv
 
 #Lists to store data
 date = []
@@ -59,8 +57,7 @@ output.append("")
 output.append("")
 
 # Specify the file to write to
-#output_path = os.path.join("..", "analysis", "output.csv")
-output_path = "PyBank/analysis/output.txt"
+output_path = os.path.join("PyBank", "analysis", "output.txt")
 
 # Open the file using "write" mode. Specify the variable to hold the contents
 with open(output_path, 'w') as export:
