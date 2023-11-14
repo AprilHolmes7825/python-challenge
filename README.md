@@ -6,11 +6,10 @@ The two projects in this repository were built to satisfy the requirements of Ru
 1. analysis (folder)
    o	output.txt – to output results  
 3. Resources (folder)  
-  o	budget_data.csv  
-    -	Column A – Date  
-    -	Column B – Profit/Loss  
-
-4. main.py  
+   o	budget_data.csv
+     -	Column A – Date
+     -	Column B - Profit/Loss
+5. main.py  
   o	 Goal: Using "budget_data.csv", create a Python script that analyzes the records to calculate each of the               following values:  
     -	The total number of months included in the dataset  
     -	The net total amount of "Profit/Losses" over the entire period  
