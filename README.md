@@ -1,16 +1,16 @@
 # python-challenge
 The two projects in this repository were built to satisfy the requirements of Rutger’s Data Science Bootcamp, Module 3 Challenge.  
   
-  
-**Project #1 – PyBank - Folder contents:**  
-•	analysis (folder)  
-  o	output.txt – to output results  
-•	Resources (folder)  
+
+## **Project #1 – PyBank - Folder contents:**  
+1. analysis (folder)  
+   o	output.txt – to output results  
+2. Resources (folder)  
   o	budget_data.csv  
     -	Column A – Date  
     -	Column B – Profit/Loss  
 
-• main.py  
+3. main.py  
   o	 Goal: Using "budget_data.csv", create a Python script that analyzes the records to calculate each of the               following values:  
     -	The total number of months included in the dataset  
     -	The net total amount of "Profit/Losses" over the entire period  
@@ -18,18 +18,19 @@ The two projects in this repository were built to satisfy the requirements of Ru
     -	The greatest increase in profits (date and amount) over the entire period  
     -	The greatest decrease in profits (date and amount) over the entire period  
   
+
   
-**Project #2 - PyPoll - Folder contents:**  
-•	analysis (folder)  
+## **Project #2 - PyPoll - Folder contents:**  
+1. analysis (folder)  
   o	output.txt – to output results  
   
-•	Resources (folder)  
+2. Resources (folder)  
   o	election_data.csv  
     -	Column A – Voter ID  
     -	Column B – County  
     -	Column C – Candidate   
       
-•	main.py  
+3. main.py  
   o	Goal: To create a Python script that analyzes the votes and calculates each of the following values:  
     -	The total number of votes cast  
     -	A complete list of candidates who received votes  
