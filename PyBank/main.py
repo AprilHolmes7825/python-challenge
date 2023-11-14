@@ -1,8 +1,9 @@
 import csv
 import os
 
-#bank_csv = os.path.join("PyBank", "Resources", "budget_data.csv")
-bank_csv = "PyBank/Resources/budget_data.csv"
+bank_csv = os.path.join("PyBank", "Resources", "budget_data.csv")
+#bank_csv = "PyBank/Resources/budget_data.csv"
+#PyBank\Resources\budget_data.csv
 
 #Lists to store data
 date = []

@@ -1,8 +1,8 @@
 import csv
 import os
 
-#election_csv = os.path.join("...", "Resources", "election_data.csv")
-election_csv = "PyPoll/Resources/election_data.csv"
+election_csv = os.path.join("PyPoll", "Resources", "election_data.csv")
+#election_csv = "PyPoll/Resources/election_data.csv"
 
 ballots = []
 candidates = []
@@ -32,7 +32,6 @@ output.append("Election Results")
 output.append("")
 output.append("----------------------------")
 output.append("")
-#output.append("Total Votes: " + str(len(ballot_id)))
 output.append("Total Votes: " + str(len(ballots)))
 output.append("----------------------------")
 output.append("")
@@ -40,7 +39,6 @@ output.append("")
 #Summarize candidates and determine winner
 winner = ""
 winner_votes = 0
-
 
 for candidate in candidates:
     num_votes = 0
